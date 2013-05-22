@@ -8,7 +8,7 @@
         $(function(){
         	var deferred = null;
         	$("#submitBtn").click(function() {
-        		deferred = $.ajax({url:'wait'});
+        		deferred = $.ajax({url:'wait',dataType:"jsonp",crossDomain:true});
         		deferred.then(function() {
         			$("#status").text("success.");
         		},function() {
