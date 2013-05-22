@@ -22,15 +22,13 @@ public class FirefoxDelayedCommandIT {
 
 	@Before
 	public void setUp() throws Exception {
-		driver = new RemoteWebDriver(
-				new URL("http://192.168.9.15:4444/wd/hub"),
-				DesiredCapabilities.firefox());
+		driver = new RemoteWebDriver(DesiredCapabilities.firefox());
 		wait = new WebDriverWait(driver, 30L);
 	}
 
 	@Test
 	public void test() {
-		driver.get("http://192.168.9.12:8080/");
+		driver.get("http://localhost:8080/");
 		driver.findElement(id("submitBtn")).click();
 		wait.until(invisibilityOfElementLocated(id("submitBtn")));
 		wait.until(elementToBeClickable(id("cancelBtn"))).click();
